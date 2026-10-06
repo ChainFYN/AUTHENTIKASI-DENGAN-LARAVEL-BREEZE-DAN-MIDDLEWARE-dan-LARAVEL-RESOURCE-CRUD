@@ -1,0 +1,409 @@
+.pos-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.store-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.store-info {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.transaction-info {
+    text-align: right;
+}
+
+.transaction-info > div {
+    font-size: 14px;
+}
+
+.transaction-number {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+/* Main layout */
+.main {
+    display: flex;
+    gap: 20px;
+}
+
+.main section {
+    flex: 2;
+    min-width: 0;
+}
+
+.main aside {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Cards */
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* Search area */
+.search-area {
+    display: flex;
+    gap: 10px;
+}
+
+.search-input {
+    flex: 1;
+    position: relative;
+}
+
+#searchProduct {
+    width: 100%;
+    padding: 10px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+}
+
+#searchProduct:focus {
+    border-color: #667eea;
+}
+
+.product-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    max-height: 250px;
+    overflow-y: auto;
+    z-index: 100;
+    display: none;
+}
+
+.product-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.product-item:hover {
+    background: #f5f5f5;
+}
+
+.product-item div:first-child {
+    font-size: 12px;
+    color: #666;
+}
+
+.product-name {
+    font-weight: bold;
+}
+
+.product-code {
+    font-size: 11px;
+    color: #999;
+}
+
+.product-price {
+    font-weight: bold;
+    color: #667eea;
+}
+
+/* Customer area */
+.customer-area .form-group {
+    margin-bottom: 15px;
+}
+
+.customer-area label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.customer-area .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Cart table */
+.table-wrapper {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-table thead th {
+    padding: 12px 10px;
+    background: #f8f9fa;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.cart-table tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.cart-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 30px !important;
+    color: #999;
+}
+
+.qty-control {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.qty-control button {
+    width: 25px;
+    height: 25px;
+    border: 1px solid #dee2e6;
+    background: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.qty-control input {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #dee2e6;
+    padding: 5px;
+}
+
+.remove-btn {
+    width: 25px;
+    height: 25px;
+    border: none;
+    background: #dc3545;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    background: #c82333;
+}
+
+/* Payment summary */
+.payment-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 5px;
+}
+
+.summary-row span {
+    font-size: 14px;
+}
+
+.summary-row strong {
+    font-weight: 600;
+}
+
+.summary-row input {
+    width: 80px;
+    padding: 8px;
+    border: 1px solid #dee2e6;
+    border-radius: 3px;
+    text-align: right;
+}
+
+.total-box {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.total-label {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.total-value {
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Payment box */
+.payment-box {
+    margin-top: 15px;
+}
+
+.payment-label {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.payment-input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #667eea;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: right;
+    margin-bottom: 15px;
+}
+
+.payment-method {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.payment-method button {
+    padding: 8px 15px;
+    border: 2px solid #dee2e6;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.2s;
+}
+
+.payment-method button.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.payment-method button:hover:not(.active) {
+    background: #f8f9fa;
+}
+
+.change-box {
+    text-align: center;
+    padding: 15px;
+    background: #28a745;
+    color: white;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.change-box.short-payment {
+    background: #dc3545;
+}
+
+.change-label {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.change-value {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Action area */
+.action-area {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.action-area .btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-warning {
+    background: #ffc107;
+    color: #000;
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-success {
+    background: #28a745;
+    color: white;
+}
+
+.action-area .btn:hover {
+    opacity: 0.9;
+}
+
+.btn-pay {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    font-size: 16px;
+    padding: 15px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .main {
+        flex-direction: column;
+    }
+    
+    .main section,
+    .main aside {
+        flex: none;
+        width: 100%;
+    }
+}

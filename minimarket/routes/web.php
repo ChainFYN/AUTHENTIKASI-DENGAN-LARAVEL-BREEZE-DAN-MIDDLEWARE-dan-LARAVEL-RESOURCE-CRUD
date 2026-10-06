@@ -35,6 +35,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions.index');
         Route::get('/transactions/create', [TransactionController::class, 'create'])->name('transactions.create');
         Route::post('/transactions', [TransactionController::class, 'store'])->name('transactions.store');
+        Route::get('/api/products/search', [TransactionController::class, 'searchProduct'])->name('api.products.search');
+        Route::get('/api/customers', [TransactionController::class, 'getCustomers'])->name('api.customers');
     });
 
     // Profile routes (Laravel Breeze)
