@@ -71,14 +71,11 @@ class ReceiptController extends Controller
             $printer->cut();
             $printer->close();
 
-            $outputContent = file_exists($filePath) ? file_get_contents($filePath) : '';
-
             return response()->json([
                 'success' => true,
                 'mode' => 'simulation_file',
                 'file' => 'storage/app/receipts/struk_acara35.txt',
                 'message' => 'Struk berhasil dicetak (Mode Simulasi File - tanpa printer fisik)',
-                'preview' => $outputContent
             ]);
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
@@ -163,14 +160,11 @@ class ReceiptController extends Controller
             $printCommands($printer);
             $printer->close();
 
-            $outputContent = file_exists($filePath) ? file_get_contents($filePath) : '';
-
             return response()->json([
                 'success' => true,
                 'mode' => 'simulation_file',
                 'file' => 'storage/app/receipts/struk_custom_formatting.txt',
                 'message' => 'Custom formatting struk (Bold, Center, Underline, QR) berhasil dicetak (Mode Simulasi File)',
-                'preview' => $outputContent
             ]);
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);

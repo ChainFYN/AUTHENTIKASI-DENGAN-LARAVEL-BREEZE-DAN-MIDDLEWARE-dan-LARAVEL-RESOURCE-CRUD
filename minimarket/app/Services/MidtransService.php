@@ -12,10 +12,7 @@ class MidtransService
         $this->init();
     }
 
-    /**
-     * Inisialisasi konfigurasi Midtrans SDK dari config/midtrans.php
-     * Sesuai Acara 37 Hal 14 - 15
-     */
+
     public function init(): void
     {
         Config::$serverKey = config('midtrans.serverKey');
@@ -23,21 +20,20 @@ class MidtransService
         Config::$isProduction = (bool) config('midtrans.isProduction');
         Config::$isSanitized = (bool) config('midtrans.isSanitized');
         Config::$is3ds = (bool) config('midtrans.is3ds');
+        Config::$curlOptions = [
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_HTTPHEADER => [],
+        ];
     }
 
-    /**
-     * Membuat Snap Token untuk transaksi
-     */
+
     public function createSnapToken(array $params): string
     {
         $this->init();
         return Snap::getSnapToken($params);
     }
 
-    /**
-     * Verifikasi signature hash Midtrans webhook
-     * Format SHA512: sha512(order_id + status_code + gross_amount + server_key)
-     */
+
     public function isValidSignature(string $orderId, string $statusCode, string $grossAmount, string $signatureKey): bool
     {
         $serverKey = config('midtrans.serverKey');
@@ -45,4 +41,3 @@ class MidtransService
         return hash_equals($expected, $signatureKey);
     }
 }
-
