@@ -32,5 +32,33 @@
                 {{ $slot }}
             </main>
         </div>
+
+        @auth
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                if (window.Echo) {
+                    window.Echo.private('user.{{ auth()->id() }}')
+                        .listen('.order.placed', (e) => {
+                            if (window.toastr) {
+                                window.toastr.success(
+                                    `Order #${e.order_id} telah ditempatkan!<br>Total: Rp ${new Intl.NumberFormat('id-ID').format(e.total)}`,
+                                    'Notifikasi Transaksi',
+                                    {
+                                        "closeButton": true,
+                                        "progressBar": true,
+                                        "positionClass": "toast-top-right",
+                                        "timeOut": 5000,
+                                        "allowHtml": true
+                                    }
+                                );
+                            }
+                            console.log('Order Placed Event:', e);
+                        });
+                }
+            });
+        </script>
+        @endauth
     </body>
 </html>

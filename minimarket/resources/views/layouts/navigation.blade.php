@@ -28,6 +28,14 @@
                     <x-nav-link :href="route('transactions.index')" :active="request()->routeIs('transactions.*')">
                         {{ __('Transactions') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('digital.products')" :active="request()->routeIs('digital.products')">
+                        {{ __('Midtrans Store') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('kopikita.print')" :active="request()->routeIs('kopikita.*')">
+                        {{ __('Struk Kopi Kita') }}
+                    </x-nav-link>
                 </div>
             </div>
 

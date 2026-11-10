@@ -20,6 +20,25 @@
                             Halaman ini dilindungi oleh <strong>RoleMiddleware</strong> (<code>role:kasir</code>). Hanya user dengan peran kasir yang dapat mengakses halaman ini.
                         </p>
                     </div>
+
+                    <!-- Acara 35 - 38 Quick Links -->
+                    <div class="mt-6 border-t pt-6">
+                        <h3 class="font-bold text-gray-800 text-sm mb-3">Materi Praktikum Minggu 11: Print ESC/POS & Midtrans Gateway</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <a href="{{ route('print.receipt') }}" target="_blank" class="p-3 border rounded-lg bg-slate-50 hover:bg-slate-100 transition flex flex-col justify-between">
+                                <span class="font-bold text-xs text-indigo-700">Acara 35: Print Dasar</span>
+                                <span class="text-xs text-gray-600 mt-1">Uji cetak struk ESC/POS Mike42</span>
+                            </a>
+                            <a href="{{ route('kopikita.print') }}" target="_blank" class="p-3 border rounded-lg bg-amber-50 hover:bg-amber-100 transition flex flex-col justify-between">
+                                <span class="font-bold text-xs text-amber-800">Acara 36: Toko Kopi Kita</span>
+                                <span class="text-xs text-gray-600 mt-1">Studi kasus struk otomatis Kopi Kita</span>
+                            </a>
+                            <a href="{{ route('digital.products') }}" target="_blank" class="p-3 border rounded-lg bg-indigo-50 hover:bg-indigo-100 transition flex flex-col justify-between">
+                                <span class="font-bold text-xs text-indigo-800">Acara 37 & 38: Midtrans</span>
+                                <span class="text-xs text-gray-600 mt-1">Checkout Snap & Webhook Order</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

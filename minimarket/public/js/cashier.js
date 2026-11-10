@@ -214,31 +214,34 @@ async function processPayment() {
             },
             body: JSON.stringify({
                 items: cart.map(i => ({ product_id: i.id, qty: i.qty, discount: 0 })),
-                subtotal: cart.reduce((s, i) => s + i.price * i.qty, 0),
-                discount: parseFloat(document.getElementById("discountPercent")?.value) || 0,
+                discount_percent: parseFloat(document.getElementById("discountPercent")?.value) || 0,
+                discount_amount: parseFloat(document.getElementById("discountAmount")?.value) || 0,
                 tax: parseFloat(document.getElementById("tax")?.value) || 0,
                 other_fee: parseFloat(document.getElementById("otherFee")?.value) || 0,
-                grand_total: total,
                 paid_amount: payment,
-                change_amount: payment - total,
                 payment_method: paymentMethod,
             }),
         });
         const result = await res.json();
 
-        if (result.success) {
+        if (res.ok && result.success) {
+            const receiptMsg = result.receipt?.message ? "\n\n[ESC/POS Print]: " + result.receipt.message : "";
             alert(
                 "Pembayaran berhasil!\n\n" +
                 "No. Transaksi : " + result.transaction_number + "\n" +
                 "Total         : " + formatRupiah(result.grand_total) + "\n" +
                 "Bayar         : " + formatRupiah(payment) + "\n" +
-                "Kembali       : " + formatRupiah(result.change_amount)
+                "Kembali       : " + formatRupiah(result.change_amount) +
+                receiptMsg
             );
             cart = [];
             paymentEl.value = "";
             renderCart();
         } else {
-            alert("Gagal: " + result.message);
+            const message = result.errors
+                ? Object.values(result.errors).flat().join("\n")
+                : result.message || "Transaksi gagal diproses.";
+            alert("Gagal: " + message);
         }
     } catch (e) {
         console.error('Error:', e);
